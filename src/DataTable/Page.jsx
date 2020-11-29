@@ -1,33 +1,23 @@
-import React from 'react'
+import React from "react";
 
-const Page = (props) => {
-  const { pageNumber, currentPageNumber, onChange } = props
+const Page = ({ pageNumber, currentPageNumber, onChange }) => {
+  const buttonClass = currentPageNumber === pageNumber ? "button-outline" : "";
 
-  const isActivePage = () => {
-    return currentPageNumber == pageNumber
-  }
-
-  const renderedPageNumber = () => {
-    return pageNumber + 1
-  }
+  const pageNumberInt = pageNumber + 1;
 
   const click = (event) => {
-    event.preventDefault()
-    onChange(pageNumber)
-  }
+    event.preventDefault();
+    onChange(pageNumber);
+  };
 
-  if (isActivePage()) {
-    return(
-      <li className="page-item mr-1">
-        <button className="page-link button-outline" onClick={click} >{renderedPageNumber()}</button>
-      </li>
-    )
-  }
-  return(
+  return (
     <li className="page-item mr-1">
-      <button className="page-link" onClick={click} >{renderedPageNumber()}</button>
+      <button className={buttonClass} onClick={click}>
+        {pageNumberInt}
+      </button>
     </li>
-  )
-}
+  );
+};
 
-export default Page
+// add proptypes here
+export default Page;
