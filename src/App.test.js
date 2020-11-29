@@ -2,6 +2,7 @@ import React from 'react';
 import { mount, shallow } from 'enzyme';
 import App from './App';
 
+// use data test
 const rows = [
   {
     name1: 'Mads L. Klausen',
